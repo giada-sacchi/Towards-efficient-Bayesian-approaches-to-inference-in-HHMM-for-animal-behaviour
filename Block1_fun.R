@@ -22,8 +22,6 @@ mllk <- function(pn, data, ll.N, ul.N, fit=TRUE){
   ul.mllk = matrix(1, nrow=length(data), ncol=ll.N);
   # initialize lists for ul probs at state1 and state2
   ul.all.probs1 = ul.all.probs2 = vector("list");
-  # retrieve natural parameters from the working ones
-  #pn = pw2pn(par.vec=par.vec, ll.N=ll.N, ul.N=ul.N);
   for(i in 1:ll.N){  # for all the production states (ll)
     for(j in 1:length(data)){  # for all the data points
       # initialize a prob matrix of 1's, with as many rows as data and columns as upper levels
@@ -41,9 +39,6 @@ mllk <- function(pn, data, ll.N, ul.N, fit=TRUE){
         dd.probs = md.probs = dw.probs = rep(1, nrow(data[[j]]));         
         # get the prob for non-missing values from a gamma distribution
         dd.probs[dd.ind] = dgamma(data[[j]]$dive_duration[dd.ind], # data for which the variable value is not missing
-                                  # REMEMBER: mu=k*theta(=shape*scale)
-                                  #           sigma2=k*theta2=mu*theta
-                                  # SO: shape=k=sigma2/thata2 AND scale=theta=sigma2/mu
                                   shape=pn$dd.mu[k]^2/pn$dd.sigma[k]^2, 
                                   scale=pn$dd.sigma[k]^2/pn$dd.mu[k]);
         # same steps as for dd.probs
