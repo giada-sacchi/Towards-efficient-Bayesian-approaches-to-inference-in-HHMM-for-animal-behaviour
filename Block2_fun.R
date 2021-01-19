@@ -22,12 +22,8 @@ mllk <- function(pn, data, ll.N, ul.N, fit=TRUE){
   ul.mllk = matrix(1, nrow=length(data), ncol=ll.N);
   # initialize lists for ul probs at state1 and state2
   ul.all.probs1 = ul.all.probs2 = vector("list");
-  # retrieve natural parameters from the working ones
-  #pn = pw2pn(par.vec=par.vec, ll.N=ll.N, ul.N=ul.N);
-  
   for(i in 1:ll.N){  ## for all the production states (ll)
     for(j in 1:length(data)){ ## for all the data points
-      
       # initialize a prob matrix of 1's, with as many rows as data and columns as upper levels
       all.probs = matrix(1, nrow=nrow(data[[j]]), ncol=ul.N);
       # store the indices of non-missing data
@@ -38,7 +34,6 @@ mllk <- function(pn, data, ll.N, ul.N, fit=TRUE){
       zt.ind = which(data[[j]]$dive_wiggliness==0&!is.na(data[[j]]$dive_wiggliness));
       # "zero false": store the indices of data for which wiggliness value is neither null nor missing
       zf.ind = which(data[[j]]$dive_wiggliness!=0&!is.na(data[[j]]$dive_wiggliness));
-      
       for(k in 1:ul.N){ ## for all the upper level states
         # initialize a prob matrix for the variables "duration" and "max depth" with all 1's and as many rows as data
         dd.probs = md.probs = dw.probs = rep(1, nrow(data[[j]]));         
