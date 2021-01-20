@@ -1,4 +1,3 @@
-##### DATA #####
 time0 <- Sys.time() # Save initial time
 
 load("13253_2017_282_MOESM2_ESM.rdata")
@@ -67,4 +66,3 @@ est <- list(ll.delta=estimates[1:2],
             dw.mu=estimates[43:45],
             dw.sigma=estimates[46:48],
             dw.pi=estimates[49:51])
-
