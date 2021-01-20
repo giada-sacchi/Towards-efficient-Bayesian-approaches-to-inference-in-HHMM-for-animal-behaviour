@@ -9,8 +9,9 @@ no_cores <- detectCores() - 1
 cl <- makeCluster(no_cores)
 registerDoParallel(cl)
 
-load("13253_2017_282_MOESM2_ESM.rdata") # Load data
-source("Temp_parallel_fun.R") # Load likelihood function
+load("13253_2017_282_MOESM2_ESM.rdata")
+source("Temp_parallel_fun.R")
+source("mllk.R")
 
 # Initialize emperature values for the chains (for all parameters)
 B.temp <- seq(1, 0, length.out=(no_cores+1))[(-(no_cores+1))]
