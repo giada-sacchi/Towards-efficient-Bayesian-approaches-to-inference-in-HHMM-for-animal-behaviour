@@ -1,17 +1,3 @@
-#### Packages & Scripts ####
-if(!require(boot)) install.packages("boot")
-library(boot)
-if(!require(Rcpp)) install.packages("Rcpp")
-library(Rcpp)
-if(!require(RcppArmadillo)) install.packages("RcppArmadillo")
-library(RcppArmadillo)   
-if(!require(invgamma)) install.packages("invgamma")
-library(invgamma)
-if(!require(numbers)) install.packages("numbers")
-library(numbers) # mod
-sourceCpp("13253_2017_282_MOESM4_ESM.cpp")
-
-
 ##### UPDATEPAR.BLOCK #####
 # Function for updating the parameter vector through block updating (Version 2)
 updatepar.block2 <- function(par.list, npar, data, n.iter, tuning=F, thr=c(0.2,0.4),
