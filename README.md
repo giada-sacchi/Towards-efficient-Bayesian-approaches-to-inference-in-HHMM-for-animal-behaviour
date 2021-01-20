@@ -4,6 +4,8 @@ The datasets analysed for this study can be found at https://link.springer.com/a
 
 The R scripts are provided below in chronological order of development (i.e. as presented in the paper).
 
+----------------------------------------
+
 mllk : Negative log-likelihood function and needed packages (based on the code produced by Leos-Barajas)
 
 par.vec0 : Vector of parameter estimates obtained through MLE
