@@ -1,17 +1,3 @@
-#### Packages & Scripts ####
-if(!require(boot)) install.packages("boot")
-library(boot)
-if(!require(Rcpp)) install.packages("Rcpp")
-library(Rcpp)
-if(!require(RcppArmadillo)) install.packages("RcppArmadillo")
-library(RcppArmadillo)   
-if(!require(invgamma)) install.packages("invgamma")
-library(invgamma)
-if(!require(numbers)) install.packages("numbers")
-library(numbers) # mod
-sourceCpp("13253_2017_282_MOESM4_ESM.cpp")
-
-
 ##### UPDATEPAR.TEMP #####
 # Function used to update parameters (acceptance prob computed considering chain temperature)
 updatepar.temp <- function(par.list, npar, data, 
@@ -112,7 +98,6 @@ prior <- function(par.list, mu, sigma, alpha, beta, shape, rate){
   }
   return(prior)
 }
-
 
 ##### TEMP.TOT.UPDATE #####
 # create function for updating the parameter vector "parvec" over "n" iterations
