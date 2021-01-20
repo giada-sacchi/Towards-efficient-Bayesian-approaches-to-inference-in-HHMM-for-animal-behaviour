@@ -1,4 +1,17 @@
-## MINUS LOG-LIKELIHOOD
+#### Packages & Scripts ####
+if(!require(boot)) install.packages("boot")
+library(boot)
+if(!require(Rcpp)) install.packages("Rcpp")
+library(Rcpp)
+if(!require(RcppArmadillo)) install.packages("RcppArmadillo")
+library(RcppArmadillo)   
+if(!require(invgamma)) install.packages("invgamma")
+library(invgamma)
+if(!require(numbers)) install.packages("numbers")
+library(numbers) # mod
+sourceCpp("13253_2017_282_MOESM4_ESM.cpp")
+
+# MINUS LOG-LIKELIHOOD
 ## Defining a function that computes the negative log-likelihood
 ## Comments and minor modifications to the code provided by Leos-Barajas
 ## https://link.springer.com/article/10.1007/s13253-017-0282-9
