@@ -1,4 +1,3 @@
-##### DATA #####
 # Save initial time
 time0 <- Sys.time()
 
@@ -38,7 +37,6 @@ rate <- rep(1e-3, 3)
 
 # Calculate log-likelihood for initial state 
 likelihood <- -mllk(pn=pn, data=data, ll.N=2, ul.N=3, fit=TRUE)
-
 
 # Perform MH algorithm with block updates
 output <- updatepar_MH2(par.list=pn, npar=npar, data=data, likhood=likelihood, 
