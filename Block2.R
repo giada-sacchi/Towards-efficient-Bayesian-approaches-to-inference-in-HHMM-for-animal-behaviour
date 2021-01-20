@@ -1,8 +1,9 @@
-##### DATA #####
+# Save initial time
+time0 <- Sys.time()
 
-time0 <- Sys.time() # Save initial time
 load("13253_2017_282_MOESM2_ESM.rdata")
-source("MH-algo_block2_fun.R") # Load likelihood function
+source("MH-algo_block2_fun.R") 
+source("mllk.R")
 
 # Retrieve initial parameter values from "mod"
 load("par.vec0.RData")
