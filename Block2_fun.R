@@ -6,7 +6,7 @@ library(Rcpp)
 if(!require(RcppArmadillo)) install.packages("RcppArmadillo")
 library(RcppArmadillo)   
 if(!require(invgamma)) install.packages("invgamma")
-library(invgamma)   # ingamma
+library(invgamma)
 if(!require(numbers)) install.packages("numbers")
 library(numbers) # mod
 sourceCpp("13253_2017_282_MOESM4_ESM.cpp")
@@ -121,4 +121,3 @@ updatepar.block2 <- function(par.list, npar, data, n.iter, tuning=F, thr=c(0.2,0
   } ## MH iterations
   return(list(itns=itns, counts=counts, delta=delta))
 }
-
