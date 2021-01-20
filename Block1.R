@@ -1,9 +1,9 @@
 ##### DATA #####
-# Save initial time
-time0 <- Sys.time()
+time0 <- Sys.time() # Save initial time
 
-load("13253_2017_282_MOESM2_ESM.rdata") # Load data
-source("Block1_fun.R") # Retrieve likelihood function
+load("13253_2017_282_MOESM2_ESM.rdata")
+source("Block1_fun.R")
+source("mllk.R")
 
 # Retrieve initial parameter values from "mod"
 load("par.vec0.RData")
@@ -52,8 +52,7 @@ delta <- output$delta
 # Proportion of accepted moves over iterations
 acc.rate <- apply(acc.count, c(1,2), sum)/n.iter
 
-# Monitor computational time
-timef <- Sys.time()
+timef <- Sys.time() # Monitor computational time
 
 # Save estimates
 estimates <- rowMeans(itns.block1[,(n.iter-n.tune+1):n.iter])
