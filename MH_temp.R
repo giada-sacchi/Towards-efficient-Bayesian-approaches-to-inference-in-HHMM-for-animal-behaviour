@@ -1,5 +1,3 @@
-##### DATA #####
-rm(list=ls())
 time0 <- Sys.time()
 
 load("13253_2017_282_MOESM2_ESM.rdata")
