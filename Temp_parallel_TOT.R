@@ -10,6 +10,7 @@ registerDoParallel(cl)
 
 load("13253_2017_282_MOESM2_ESM.rdata")
 source("Temp_parallel_fun_TOT.R")
+source("mllk.R")
 
 # Initialize emperature values for the chains (for all parameters)
 B.temp <- c(1, 0.75, 0.5, 0.25)
