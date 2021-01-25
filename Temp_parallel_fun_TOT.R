@@ -39,8 +39,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
             A <- 0
           } else {
           # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-          num <- newlikhood + log(dlnorm(par.list[[j]][i], mu[i], sd[i]))
-          den <- likhood + log(dlnorm(oldpar, mu[i], sd[i]))
+          num <- newlikhood + dlnorm(par.list[[j]][i], mu[i], sd[i], log=TRUE)
+          den <- likhood + dlnorm(oldpar, mu[i], sd[i], log=TRUE)
           E <- den-num
           A <- min(1, exp(-B.temp*E))
           }
@@ -55,8 +55,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
             A <- 0
           } else {
           # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-          num <- newlikhood + log(dinvgamma(par.list[[j]][i], shape[i], rate[i]))
-          den <- likhood + log(dinvgamma(oldpar, shape[i], rate[i]))
+          num <- newlikhood + dinvgamma(par.list[[j]][i], shape[i], rate[i], log=TRUE)
+          den <- likhood + dinvgamma(oldpar, shape[i], rate[i], log=TRUE)
           E <- den-num
           A <- min(1, exp(-B.temp*E))
           }
@@ -88,8 +88,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
           A <- 0
         } else {
           # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-          num <- newlikhood + sum(log(dbeta(par.list[[j]],2,2)))
-          den <- likhood + sum(log(dbeta(oldpar,2,2)))
+          num <- newlikhood + sum(dbeta(par.list[[j]],2,2,log=TRUE))
+          den <- likhood + sum(dbeta(oldpar,2,2,log=TRUE))
           E <- den-num
           A <- min(1, exp(-B.temp*E))
           if(is.nan(A)){A <- 0}
@@ -120,8 +120,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
             A <- 0
           } else {
             # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-            num <- newlikhood + sum(log(dbeta(par.list[[j]][k,],.5,.5)))
-            den <- likhood + sum(log(dbeta(oldpar,.5,.5)))
+            num <- newlikhood + sum(dbeta(par.list[[j]][k,],0.5,0.5,log=TRUE))
+            den <- likhood + sum(dbeta(oldpar,0.5,0.5,log=TRUE))
             E <- den-num
             A <- min(1, exp(-B.temp*E))
             if(is.nan(A)){A <- 0}
@@ -156,8 +156,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
               A <- 0
             } else {
               # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-              num <- newlikhood + sum(log(dbeta(par.list[[j]][[k]],0.5,0.5)))
-              den <- likhood + sum(log(dbeta(oldpar,0.5,0.5)))
+              num <- newlikhood + sum(dbeta(par.list[[j]][[k]],0.5,0.5,log=TRUE))
+              den <- likhood + sum(dbeta(oldpar,0.5,0.5,log=TRUE))
               E <- den-num
               A <- min(1, exp(-B.temp*E))
               if(is.nan(A)){A <- 0}
@@ -194,8 +194,8 @@ updatepar.temp.tot <- function(par.list, npar, data,
                 A <- 0
               } else {
                 # Include likelihood and (log) prior contributions (symmetric proposal distributions cancel out)
-                num <- newlikhood + sum(log(dbeta(par.list[[j]][[k]][i,],0.5,0.5)))
-                den <- likhood + sum(log(dbeta(oldpar,0.5,0.5)))
+                num <- newlikhood + sum(dbeta(par.list[[j]][[k]][i,],0.5,0.5,log=TRUE))
+                den <- likhood + sum(dbeta(oldpar,0.5,0.5,log=TRUE))
                 E <- den-num
                 A <- min(1, exp(-B.temp*E))
                 if(is.nan(A)){A <- 0}
@@ -220,7 +220,6 @@ updatepar.temp.tot <- function(par.list, npar, data,
   output <- list(par.list=par.list, likhood=likhood, energy=E, counts=acc.count) 
   output
 }
-
 
 
 ##### PRIOR #####
