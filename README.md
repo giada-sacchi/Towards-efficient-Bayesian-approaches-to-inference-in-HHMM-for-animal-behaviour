@@ -4,6 +4,8 @@ The datasets analysed for this study can be found at https://link.springer.com/a
 
 The R scripts are provided below in chronological order of development (i.e. as presented in the paper).
 
+The average running times for the algorithms is appended at the end of this file.
+
 ----------------------------------------
 
 mllk : Negative log-likelihood function and needed packages (based on the code produced by Leos-Barajas)
@@ -41,6 +43,22 @@ MH_temp_fun* : Function for updating the parameter vector, function for computin
 Temp_parallel : MH algorithm with parallel tempering running as many chains as the number of cores minus 1 (parallelised version)
 
 Temp_parallel_fun : Functions for updating the parameter vector, computing the sum of prior distributions, updating of the parameter vector over the total number of iterations (related to Temp_parallel)
+
+-----------------
+
+| Method    | Computational Time |
+| --------- |------------------|
+| Frequentist | c.25 minutes | 
+| Block1 (21 params) | 2.07 hours | 
+| Block2 (21 params) | 2.07 hours |   
+| MH (21 params) | 5.94 hours | 
+| MH1 (21 params) | 6.16 hours | 
+| MH2 (21 params) | 6.16 hours | 
+| Block2 (21 params) | 2.07 hours | 
+| MH_tot (51 params) |7.64 hours | 
+| MH_temp (21 params, 4 chains) | 1.32 days | 
+| Temp_parallel (21 params, 4 chains) | 1.04 days | 
+| Temp_parallel (21 params, 7 chains) | 1.77 days |
 
 -----------------
 *Not used in order to derive inference, but as a temporary step for the implementation of the full code.
