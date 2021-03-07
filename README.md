@@ -46,15 +46,14 @@ Temp_parallel_fun : Functions for updating the parameter vector, computing the s
 
 -----------------
 
-| Method    | Computational Time |
-| --------- |------------------|
-| Frequentist | c.25 minutes | 
+| Method | Computational Time |
+|-------|------------------|
+| Frequentist | c. 25 minutes | 
 | Block1 (21 params) | 2.07 hours | 
 | Block2 (21 params) | 2.07 hours |   
 | MH (21 params) | 5.94 hours | 
 | MH1 (21 params) | 6.16 hours | 
 | MH2 (21 params) | 6.16 hours | 
-| Block2 (21 params) | 2.07 hours | 
 | MH_tot (51 params) |7.64 hours | 
 | MH_temp (21 params, 4 chains) | 1.32 days | 
 | Temp_parallel (21 params, 4 chains) | 1.04 days | 
