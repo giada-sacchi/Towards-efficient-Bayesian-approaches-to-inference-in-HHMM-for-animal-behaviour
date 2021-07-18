@@ -1,4 +1,4 @@
-# Parallel-Tempering-on-Hierarchical-Hidden-Markov-Models
+# Parallel Tempering on Hierarchical Hidden Markov Models
 
 The datasets analysed for this study can be found at https://link.springer.com/article/10.1007/s13253-017-0282-9
 
@@ -55,7 +55,7 @@ Temp_parallel_fun : Functions for updating the parameter vector, computing the s
 | MH1 (21 params) | 6.16 hours | 
 | MH2 (21 params) | 6.16 hours | 
 | MH_tot (51 params) |7.64 hours | 
-| MH_temp (21 params, 4 chains) | 1.32 days | 
+| MH_temp* (21 params, 4 chains) | 1.32 days | 
 | Temp_parallel (21 params, 4 chains) | 1.04 days | 
 | Temp_parallel (21 params, 7 chains) | 1.77 days |
 
